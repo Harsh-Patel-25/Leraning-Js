@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in js</title>
+</head>
+<body>
+    <script>
+        // Regular functions
+        function sum(a,b,c) {
+            return a+b+c;
+        };
+        console.log(sum(5,15,7));
+
+        // Anonymous function
+        const add = function(a,b,c){
+            return a+b+c;
+        };
+        console.log(add(5,15,7));
+
+
+        // Arrow functions
+        const addition = (a,b,c) => {
+            return a+b+c;
+        };
+        console.log(addition(5,15,7));
+        // Arrow function with single parameter
+        const square = x => {
+            return x*x;
+        };
+        console.log(square(18));
+        // Arrow function with no parameter
+        const hello = () => {
+            console.log("Hello world!");
+        };
+        console.log(hello());
+        // Implicit return in arrow function
+        const val = (a,b) => (
+            a**b
+        );
+        console.log(val(2,3));
+    </script>
+</body>
+</html>

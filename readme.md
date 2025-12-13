@@ -1,5 +1,5 @@
 # Purpose :-
-For learning the repositories of GitHub.
+For learning js.
 
 # Editor
 Harsh Patel.
