@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <script>
+        //1.Foreach Method
+        const numbers = [1, 2, 3, 4, 5];
+        numbers.forEach((el)=>{
+            console.log(el);
+        });
+
+        const obj = [{
+            name : "Harsh",
+            age:21,
+            marks:95
+        },{
+            name:"Manav",
+            age:22,
+            marks:98
+        },{
+            name:"Ridhdhi",
+            age:20,
+            marks:97
+        }];
+        // obj.forEach((el)=>{
+        //     console.log(el.name);
+        // });
+        let num = [1,2,3,4,5];
+
+        //map
+        let double = num.map((el)=>{
+            return el**2;
+        });
+        console.log(double);
+
+        //filter
+        let check = num.filter((el)=>(el%2===0));
+        console.log(check);
+
+        //every
+        //every method checks if all elements satisfy the condition if yes than return true else false
+        let ch = num.every((el)=>{
+            return el<10;
+        })
+        console.log(ch);
+
+        //some
+        //some method checks if at least one element satisfy the condition if yes than return true else false
+        let cs = num.some((el)=>{
+            return el>4;
+        });
+        console.log(cs);
+
+        //reduce
+        let acc = [1,2,3,4,5,10];
+        let final = acc.reduce((a,el)=>{
+            return a+el;
+        });
+        console.log(final);
+
+        let max = acc.reduce((a,el)=>(a>el?a:el));
+        console.log(max);
+
+        //practice 
+        //check all num in array are mul by 10 or not
+        let arr = [10,20,30,40,50];
+        let ans = arr.map((el)=>{
+            return el%10===0;
+        });
+        console.log(ans);
+        //another way
+        let anss = arr.every((el)=>(el%10===0));
+        console.log(anss);
+        //find min in the array
+        let min = arr.reduce((a,el)=>{
+            if (a<el){
+                return a;
+            } else {
+                return el;
+            }
+        });
+        console.log(min);
+    </script>
+</body>
+</html>
