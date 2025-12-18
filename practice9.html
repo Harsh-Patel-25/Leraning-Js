@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Qs9</title>
+</head>
+<body>
+    <script>
+        let body = document.querySelector("body");
+        let newP = document.createElement("p");
+        body.appendChild(newP);
+        newP.innerText = "Hello! Welcome to our webpage.";
+        newP.style.color = "red";
+        let h3 = document.createElement("h3");
+        h3.innerText = "I'm a blue h3.";
+        h3.style.color = "blue";
+        body.appendChild(h3);
+
+        let div = document.createElement("div");
+        div.style.border = "2px solid black";
+        div.style.backgroundColor = "pink";
+        body.appendChild(div);
+
+        let h1 = document.createElement("h1");
+        h1.innerText = "I'm in a div.";
+        div.appendChild(h1);
+
+        let p = document.createElement("p");
+        p.innerText = "ME TOO!";
+        div.appendChild(p);
+
+        div.style.padding = "10px";
+
+        let h1s = document.createElement("h1");
+        h1s.innerText = "Assignment Questions:-";
+        body.appendChild(h1s);
+
+        let input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "Enter your name";
+        body.appendChild(input);
+
+        let button = document.createElement("button");
+        button.innerText = "Click Me!";
+        body.appendChild(button);
+
+        input.setAttribute("id", "btn");
+        input.setAttribute("placeholder", "username");
+
+        button.style.backgroundColor = "blue";
+        button.style.color = "white";
+
+        let el = document.createElement("h1");
+        el.innerText = "DOM practice";
+        body.appendChild(el);
+        newP.insertAdjacentElement("beforebegin", el);
+        el.style.textDecoration = "underline";
+        el.style.textDecorationColor = "purple";
+
+        let np = document.createElement("p");
+        np.innerHTML = "Apna Collage <b>Delta</b> Practice";
+        body.appendChild(np);
+    </script>
+</body>
+</html>

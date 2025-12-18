@@ -58,12 +58,14 @@
             margin-right: 10px;
             border: 2px solid white;
         }
-        .maroon{
+
+        .maroon {
             color: maroon;
             text-decoration: underline black wavy;
         }
     </style>
 </head>
+
 <body>
     <h1 id="head">Spider Man</h1>
     <img src="spiderman.jpeg" id="mainImg" alt="Spider Man" class="mi" class="ci" />
@@ -79,7 +81,7 @@
         <a href="#">Silver Age of Comic Books</a>.
         He has been featured in comic books, television shows, films,
         video games, novels, and plays.
-    </p> 
+    </p>
     <div class="box">
         <h4>Publication Info</h4>
         <ul>
@@ -145,16 +147,16 @@
         head.style.color = "lightBlue";
 
         let li = document.querySelectorAll(".box a");
-        for(let i=0;i<li.length;i++){
+        for (let i = 0; i < li.length; i++) {
             li[i].style.color = "yellow";
         }
         //we can also use for...of loop here
-        for(item of li){
-        //  var     iterable    
+        for (item of li) {
+            //  var     iterable    
             item.style.color = "red";
         }
         //forEach method
-        li.forEach((item)=>{
+        li.forEach((item) => {
             item.style.color = "green";
         }); //This style property changes and show only inline styles
 
@@ -163,23 +165,81 @@
         img.classList; // gives all the classes of the element
         let hd = document.querySelector(".box h4");
 
-        //6.1 classList.add()
+        //6.1 classList.add(className)
         hd.classList.add("maroon"); // adds maroon class to the h4 element of class box
 
-        //6.2 classList.remove()
+        //6.2 classList.remove(className)
         hd.classList.remove("maroon"); // removes maroon class from the h4 element of class box
 
-        //6.3 classList.contains()
+        //6.3 classList.contains(className)
         // To check the presence of a class return true or false
         hd.classList.contains("maroon");
 
-        //6.4 classList.toggle()
+        //6.4 classList.toggle(className)
         //toggle betweeen add or remove
         hd.classList.toggle("maroon"); // adds the class if not present else removes it
 
-        
+
         //7. Navigation Properties
+
+        //7.1 parentElement 
+        //child has only one parent
+        let h4 = document.querySelector("h4");
+        h4.parentElement;
+
+        //7.2 children
+        h4.children;
+        document.querySelector("ul").childElementCount;
+
+        //7.3 previousElementSibling and nextElementSibling
+        const sibl = document.querySelector("ul").children[1];
+        console.log(sibl);
+        // sibl.previousElementSibling;
+        // sibl.nextElementSibling;
+
+        //8 Adding elements
+        //createElement(element)
+        let newP = document.createElement("p"); // creates a new paragraph element
+        newP.innerText = "Hello! I am peter parker.";
+        let body = document.querySelector("body");
+        //appendChild(element)
+        body.appendChild(newP);// adds the new paragraph at the end of the body
+
+        //We can also add it at middle 
+        let bbx = document.querySelector(".box");
+        bbx.appendChild(newP);
+
+        //we can also add some thing in newP using 
+        //append(element)
+        newP.append(" This is appended text.");
+
+        //add element at starting
+        //prepend(element)
+        newP.prepend("This is prepended text. ");    
+
+        //adding at exact position
+        //insertAdjacentElement(position, element)
+        //positions: beforebegin 
+        //           afterbegin
+        //           beforeend
+        //           afterend
+        let btn = document.createElement("button");
+        btn.innerText = "Click me!";
+        let p = document.querySelector("p");
+        // p.insertAdjacentElement("beforebegin",btn);
+        // p.insertAdjacentElement("afterbegin",btn);
+        // p.insertAdjacentElement("beforeend",btn);
+        p.insertAdjacentElement("afterend",btn);
+
+        //9 Removing Elements
+        //removeChild(element)
+    
+        body.removeChild(btn); // removes the button from paragraph using body as parent
+
+        //remove()
+        btn.remove(); // removes the paragraph itself
 
     </script>
 </body>
+
 </html>
