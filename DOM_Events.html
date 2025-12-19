@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Events</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: lightblue;
+            border: 1px solid blue;
+        }
+    </style>
 </head>
 <body>
     <button>Click Me!</button>
+    <p>Click on me!</p>
+    <div class="box"></div>
 
     <script>
         //onclick event
@@ -29,6 +39,20 @@
             alert("Button clicked using Event Listener!");
         });
         //some events :- click, mouseover, dblclick, mouseout, keydown, keyup, keypress, load, scroll, blur, focus etc.
+
+        //Event listners at element
+        let p = document.querySelector("p");
+        p.addEventListener("click",()=>{
+            console.log("Paragraph clicked!");
+        })
+
+        let box = document.querySelector(".box");
+        box.addEventListener("mouseenter",()=>{
+            console.log("Mouse inside box!");
+        })
+
+        //"this" in EventListner
+        
     </script>
 </body>
 </html>
