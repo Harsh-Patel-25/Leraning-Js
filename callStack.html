@@ -44,29 +44,39 @@
             return new Promise((resolve,reject) => {
                 setTimeout(() => {
                     h1.style.color = color;
+                    console.log(`color was changed to ${color}`);
                     resolve("Color changed!");
                 }, delay);
             });
         }
-        changeColor("red", 1000)
-            .then(() => {
-            console.log("color changed to red.");
-            return changeColor("orange", 1000);
-            })
-            .then(() => {
-                console.log("color changed to orange.");
-                return changeColor("green", 1000);
-            })
-            .then(() => {
-                console.log("color changed to green.");
-                return changeColor("blue", 1000);
-            })
-            .then(() => {
-                console.log("color changed to green.");
-            })
-            .catch(() => {
-                console.log("color was not changed.");
-            })
+        // changeColor("red", 1000)
+        //     .then(() => {
+        //     console.log("color changed to red.");
+        //     return changeColor("orange", 1000);
+        //     })
+        //     .then(() => {
+        //         console.log("color changed to orange.");
+        //         return changeColor("green", 1000);
+        //     })
+        //     .then(() => {
+        //         console.log("color changed to green.");
+        //         return changeColor("blue", 1000);
+        //     })
+        //     .then(() => {
+        //         console.log("color changed to green.");
+        //     })
+        //     .catch(() => {
+        //         console.log("color was not changed.");
+        //     })
+
+        //using async & await
+        async function demo() {
+            await changeColor("red",1000);
+            await changeColor("orange",1000);
+            await changeColor("green",1000);
+            await changeColor("blue",1000);
+        }
+
 
         //Callback nesting => CallBack Hell 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Functions</title>
+</head>
+
+<body>
+
+    <script>
+        // async function greet(){
+        //     //abc.abc();
+        //     //throw "Weak connection.";
+        //     return "Hello!";
+        // };
+        // greet()
+        // .then((result)=>{
+        //     console.log("Promise was resolved.");
+        //     console.log(result);
+        // })
+        // .catch((error)=>{
+        //     console.log("Promise was rejected.");
+        //     console.log(error);
+        // })
+
+        //await keyword
+        // function getNumber() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             let num = Math.floor(Math.random() * 10) + 1;
+        //             console.log(num);
+        //             resolve();
+        //         },1000);
+        //     })
+        // }
+        // async function demo() {
+        //     await getNumber();
+        //     await getNumber();
+        //     getNumber();
+        // }
+
+        //Handling of rejection
+        function getNumber() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let num = Math.floor(Math.random() * 10) + 1;
+                    if (num > 8) {
+                        reject("promise rejected.");
+                    }
+                    console.log(num);
+                    resolve();
+                }, 1000);
+            })
+        }
+        async function demo() {
+            try {
+                await getNumber();
+                await getNumber();
+                await getNumber();
+            } catch(error) {
+                console.log("error caught.");
+                console.log(error);
+            }
+            console.log("Thank you for using!");
+        }
+    </script>
+</body>
+
+</html>
