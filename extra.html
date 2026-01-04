@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios in js</title>
+</head>
+
+<body>
+    <label for="text">Enter any state name:</label>
+    <input type="text" placeholder="Enter here">
+    <button class="search">Search</button>
+    <ul id="list"></ul>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    <script>
+        //updating query string
+        let newUrl = "http://universities.hipolabs.com/search?country=india&state-province=";
+        let button = document.querySelector(".search");
+
+        button.addEventListener("click", async () => {
+            let state = document.querySelector("input").value;
+            console.log(state);
+            let colArr = await getCollages(state);
+            show(colArr);
+        })
+        function show(colArr){
+            let list = document.querySelector("#list");
+            list.innerText = "";
+            for (let a of colArr){
+                let li = document.createElement("li");
+                li.innerText = a.name;
+                list.appendChild(li);
+            }
+        }
+        async function getCollages(state) {
+            try{
+                let res = await axios.get(newUrl + state);
+                return res.data;
+            } catch(e) {
+                console.log("Error -",e);
+                return [];
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home work problem</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Enter you state here">
+    <button class="search">Search</button>
+    <ul class="list"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    <script>
+        //uisng the collages api get collages through state data
+        let url = "http://universities.hipolabs.com/search?name=india";
+        let state = document.querySelector("input").value;
+        let button = document.querySelector(".search");
+
+        
+        button.addEventListener("click", async ()=> {
+            let collagearray = await getCollages();
+            show(collagearray);
+        })
+        async function getCollages(){
+            try{
+                let clgs = await axios.get(url);
+                console.log(clgs.data);
+                return clgs.data;
+            } catch(e) {
+                console.log("Error is :",e);
+                return [];
+            } 
+        }
+        function show(collagearray){
+            for(let a of collagearray){
+                console.log(a);
+            }
+        }
+
+    </script>
+</body>
+</html>

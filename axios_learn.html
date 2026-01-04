@@ -17,9 +17,15 @@
     <button class="dogbtn">Show new image</button><br><br>
     <img src="" alt=""> -->
 
-    <h1 class="jokes">Jokes</h1>
+    <!-- <h1 class="jokes">Jokes</h1>
     <button class="jokesbtn">Next joke!</button>
-    <p class="jokep"></p>
+    <p class="jokep"></p> -->
+
+    <label for="text">Enter any country name:</label>
+    <input type="text" placeholder="Enter here">
+    <button class="search">Search</button>
+    <ul id="list"></ul>
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
     <script>
@@ -60,23 +66,55 @@
         // }
 
         //Sending Headers in axios
-        let url3 = "https://icanhazdadjoke.com/"
-        async function getJokes() {
-            try {
-                const header ={ headers:{Accept:"text/plain"} };
-                let jokes = await axios.get(url3,header);
-                return jokes.data;
-            } catch(err) {
-                console.log("Jokes not found.",err);
+        // let url3 = "https://icanhazdadjoke.com/"
+        // async function getJokes() {
+        //     try {
+        //         const header ={ headers:{Accept:"text/plain"} };
+        //         let jokes = await axios.get(url3,header);
+        //         return jokes.data;
+        //     } catch(err) {
+        //         console.log("Jokes not found.",err);
+        //     }
+        // }
+        // let jokebtn1 = document.querySelector(".jokesbtn");
+        // jokebtn1.addEventListener("click", async () => {
+        //     let njoke = await getJokes();
+        //     console.log(njoke);
+        //     let p = document.querySelector(".jokep");
+        //     p.innerText = njoke;
+        // })
+
+        //updating query string
+        let newUrl = "http://universities.hipolabs.com/search?state-province=";
+        let button = document.querySelector(".search");
+
+        button.addEventListener("click", async () => {
+            let country = document.querySelector("input").value;
+            console.log(country);
+            let colArr = await getCollages(country);
+            show(colArr);
+        })
+        function show(colArr){
+            let list = document.querySelector("#list");
+            list.innerText = "";
+            for (let a of colArr){
+                let li = document.createElement("li");
+                li.innerText = a.name;
+                list.appendChild(li);
             }
         }
-        let jokebtn = document.querySelector("jokesbtn");
-        jokebtn.addEventListener("click", async ()=>{
-            let njoke = await getJokes();
-            console.log(njoke);
-            let p = document.querySelector("jokep");
-            p.innerText = joke;
-        })
+        async function getCollages(country) {
+            try{
+                let res = await axios.get(newUrl + country);
+                return res.data;
+            } catch(e) {
+                console.log("Error -",e);
+                return [];
+            }
+        }
+        
+       
+        
     </script>
 </body>
 
